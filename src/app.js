@@ -3,6 +3,7 @@ import AppLayout from './components/app-layout.js';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import About from './components/about.js';
 import Error from './components/error.js';
+import Cart from './components/cart.js';
 
 
 const appRouter=createBrowserRouter([
@@ -15,6 +16,10 @@ const appRouter=createBrowserRouter([
         path:'/about',
         element:<About/>
     },
+    {
+        path:'/cart',
+        element:<Cart/>
+    }
 
 ]);
 

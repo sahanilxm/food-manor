@@ -1,8 +1,11 @@
-
+import RestaurantMenu from "./restaurant-menu";
 const RestaurantCard=({imageURL, name, cuisines, rating, distance, price})=>{
 
     return(
-        <div className="border border-primaryColor shadow rounded-md p-4 mt-4 w-72 mr-8">
+        <div className="border border-primaryColor shadow rounded-md p-4 mt-4 w-72 mr-8 hover:cursor-pointer" onClick={()=>{
+            console.log("clicked");
+            <RestaurantMenu/>
+        }}>
         <div className="flex space-x-4">
             <div className="flex-1 space-y-6 py-1">
             <img className="bg-gray-400 rounded h-40 border" src={imageURL}></img>
