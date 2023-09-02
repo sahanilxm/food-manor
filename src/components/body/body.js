@@ -1,50 +1,92 @@
-import restaurantList from "../../hooks/restaurant-list";
-import { API_URL, IMG_CDN_URL } from "../../config";
-import RestaurantCard from "./restaurants/restaurant-card";
-import Shimmer from "../shimmer";
-import { useState } from "react";
-
-const Body=()=>{
-
-    const [allRestaurant, filteredResult]=restaurantList(API_URL);
-    const [filteredRestaurants, setFilteredRestaurants]=useState(null);
+import { useState, useEffect } from "react";
+import RestaurantList from "./restaurants/restaurant-list";
+import Shimmer from '../../components/shimmer.js';
+import {API_URL} from '../../config.js'; 
 
 
-    const [searchText, setSearchText]=useState("");
+const Search=({allRestaurant, setFilteredRestaurant})=>{
+    const [searchText, setSearchText]= useState('');
 
-    const searchItem=(searchText, allRestaurants)=>{
+    const searchRestaurant=()=>{
         if(searchText !== ''){
-            const filtereddata=allRestaurants.filter((restaurant)=>{
+            const filterdata=allRestaurant.filter((restaurant)=>{
                 if(restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())){
                     return restaurant;
                 }
             })
-            setFilteredRestaurants(filtereddata);
+            console.log(filterdata);
+            setFilteredRestaurant(filterdata);
         }
-    }
+        else{
+            setFilteredRestaurant(allRestaurant);
+        }
+    };
 
+    return(
+        <div className="flex justify-center">
+                <input placeholder="Search a Restaurant..." className="border w-96 border-black rounded-l-md p-2" onChange={(e)=>{
+                    setSearchText(e.target.value);
+                    // searchRestaurant();   ---> Ispe Kaam Karna hai.
+            }}/>
+            <button className=" border-orange-800 bg-helperColor text-white p-2 rounded-r-md" onClick={()=>{
+                console.log("clicked");
+                searchRestaurant();
+            }}>Search</button>
+        </div>
+    );
+};
+
+
+
+const Body=()=>{
+
+    const [allRestaurant, setAllRestaurant]=useState([]);
+    const [filteredRestaurant, setFilteredRestaurant]= useState();
+
+    async function getAllRestaurants(){
+        try{
+            let restaurantList= await fetch(API_URL);
+            if(!restaurantList.ok){
+                const err=restaurantList.status;
+                throw new Error(err);
+            }
+            else{
+               restaurantList= await restaurantList.json();
+               
+                function getValidRestaurantList(restaurantList){
+                    for(let i=0;i<restaurantList?.data?.cards.length;i++){
+                        let validRestaurantList=restaurantList?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+                        if(validRestaurantList!=undefined){
+                            return validRestaurantList;
+                        }
+                    }
+               };   
+
+               restaurantList= getValidRestaurantList(restaurantList);
+               if(restaurantList === undefined){
+                    console.log("Currently No service available");
+               }
+               else{
+                    setAllRestaurant(restaurantList);
+                    setFilteredRestaurant(restaurantList);
+               } 
+            }
+        }
+        catch (error){
+            console.log(error);
+        }
+    };
+
+    useEffect(()=>{
+        getAllRestaurants();
+    },[]);
 
     return(
         <div className="pt-20 min-h-screen pb-5">
-            <div className="flex justify-center">
-                <input placeholder="Search a Restaurant..." className="border w-96 border-black rounded-l-md p-2" onChange={(e)=>{
-                    setSearchText(e.target.value);
-                    searchItem(searchText, allRestaurant);
-                }}/>
-                <button className=" border-orange-800 bg-helperColor text-white p-2 rounded-r-md" onClick={()=>{
-                    searchItem(searchText, allRestaurant);
-                }}>Search</button>
-            </div>
+            <Search allRestaurant={allRestaurant} setFilteredRestaurant={setFilteredRestaurant}/>
             {
-                (allRestaurant?.length ===0?<Shimmer/>:<div className="flex flex-wrap justify-center">
-                {
-                    (filteredRestaurants === null? filteredResult:filteredRestaurants).map((restaurant)=>{
-                        return <RestaurantCard imageURL={IMG_CDN_URL+restaurant?.info?.cloudinaryImageId} name={restaurant?.info?.name} cuisines={restaurant?.info?.cuisines} rating={restaurant?.info?.avgRating} distance={restaurant?.info?.sla?.lastMileTravelString} price={restaurant?.info?.costForTwo}/>
-                    })
-                }
-                </div>)
+                (allRestaurant.length===0? <Shimmer/>: <RestaurantList filteredRestaurant={filteredRestaurant}/>)
             }
-            
         </div>
     );
 };
