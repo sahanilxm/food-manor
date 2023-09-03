@@ -10,6 +10,10 @@ module.exports = {
         'secondaryColor':'#2C365D',
         'helperColor':'#FF5E3A',
         'helperColorSecond':'#F2F2F0'
+      },
+      fontFamily:{
+        'primaryFont':['Amatic SC', 'cursive'],
+        'secondaryFont':['Handlee', 'cursive'],
       }
     },
   },
