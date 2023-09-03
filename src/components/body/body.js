@@ -82,7 +82,7 @@ const Body=()=>{
     },[]);
 
     return(
-        <div className="pt-20 min-h-screen pb-5">
+        <div className="pt-24 min-h-screen pb-5">
             <Search allRestaurant={allRestaurant} setFilteredRestaurant={setFilteredRestaurant}/>
             {
                 (allRestaurant.length===0? <Shimmer/>: <RestaurantList filteredRestaurant={filteredRestaurant}/>)
