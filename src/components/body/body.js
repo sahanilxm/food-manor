@@ -24,11 +24,11 @@ const Search=({allRestaurant, setFilteredRestaurant})=>{
 
     return(
         <div className="flex justify-center">
-                <input placeholder="Search a Restaurant..." className="border w-96 border-black rounded-l-md p-2" onChange={(e)=>{
+                <input placeholder="Search a Restaurant..." className="border-2 w-96 border-black rounded-l-md p-2 outline-primaryColor" onChange={(e)=>{
                     setSearchText(e.target.value);
                     // searchRestaurant();   ---> Ispe Kaam Karna hai.
             }}/>
-            <button className=" border-orange-800 bg-helperColor text-white p-2 rounded-r-md" onClick={()=>{
+            <button className=" border-helperColor bg-helperColor text-white p-2 rounded-r-md border-2" onClick={()=>{
                 console.log("clicked");
                 searchRestaurant();
             }}>Search</button>

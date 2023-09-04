@@ -3,8 +3,8 @@ const About=()=>{
     return(
         <div className="w-full flex space-x-8 h-screen p-32 pt-48 pb-16 text-center">
             <div className="w-1/4 border-primaryColor space-y-4 border-2 shadow-2xl shadow-primaryColor rounded-md">
-                <h1 className='text-primaryColor font-bold underline'>Profile Admin</h1>
-                <img src={require('../assets/images/profile-pic.png')} title='Laxmi-Kumar-Sahani-Profile-Pic' className='w-52 m-auto'/>
+                <h1 className='text-primaryColor font-bold underline'>Admin's Profile</h1>
+                <img src={require('../assets/images/profile-pic.png')} title='Laxmi-Kumar-Sahani-Profile-Pic' className='w-52 m-auto' alt='Laxmi-Kumar-Sahani-Profile-Pic'/>
                 <h4 className='font-primaryFont font-bold text-helperColor'>Laxmi Kumar Sahani</h4>
                 <p className='font-secondaryFont text-primaryColor'>Web App Devloper | Competitive Programmar</p>
                 <div className='flex space-x-3 justify-center'>
