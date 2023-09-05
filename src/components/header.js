@@ -7,7 +7,7 @@ const Header= ()=>{
             <Link to={'/'}>
                 <div className='flex'>
                     <img src={require('../assets/logos/delivery-man.png')} className='w-10 h-10'/>
-                    <h1 className="text-primaryColor text-xl font-thin hover:text-slate-900 hover:cursor-pointer hover:font-bold hover:underline m-auto pl-2 font-secondaryFont">Food Manor</h1>
+                    <h1 className="text-helperColor text-xl font-thin hover:text-slate-900 hover:cursor-pointer hover:font-bold hover:underline m-auto pl-2 font-secondaryFont">Food Manor</h1>
                 </div>
             </Link>
             <div> 

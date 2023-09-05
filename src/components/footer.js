@@ -1,7 +1,7 @@
 const Footer=()=>{
     const year=new Date().getFullYear();
     return(
-        <div className="w-full text-center border-2 border-primaryColor mb-1 pt-3 pb-3 shadow-md shadow-primaryColor z-50">
+        <div className="w-full text-center bottom-0 border-2 border-primaryColor mb-1 pt-3 pb-3 shadow-md shadow-primaryColor z-50">
             Created with 
             <i className="fa-solid fa-heart px-1 text-red-700"></i>
             By, 
