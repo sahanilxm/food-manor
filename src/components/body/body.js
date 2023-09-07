@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import RestaurantList from "./restaurants/restaurant-list";
-import Shimmer from '../../components/shimmer.js';
+import {Shimmer} from '../../components/shimmer.js';
 import {API_URL} from '../../config.js'; 
 
 

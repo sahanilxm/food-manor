@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { API_MENU_URL, IMG_CDN_URL } from "../../../config";
 import { useParams } from "react-router-dom";
-import Shimmer from '../../shimmer.js'
+import {MenuShimmer} from '../../shimmer.js'
 import RestaurantMenuItem from "./restaurant-menu-item";
 
 const RestaurantMenu=()=>{
@@ -33,13 +33,14 @@ const RestaurantMenu=()=>{
     }, []);
 
     return(
-        <div className="w-full pt-20 pb-32 min-h-screen">
-            {
+        <div className="w-full pt-20 pb-32 min-h-screen ">
+            <MenuShimmer/>
+            {/* {
                 (restaurantDetails === null ? <h1>Loading</h1>:
                 <div>
-                    <div className="border-2 border-primaryColor flex bg-primaryColor">
+                    <div className="border-2 border-primaryColor flex bg-primaryColor pl-72">
                         <div>
-                            <img src={restaurantDetails.imageURL} alt="Restaurant Image" className="w-64 ml-72 p-4 rounded-2xl"/>
+                            <img src={restaurantDetails.imageURL} alt="Restaurant Image" className="w-64 p-4 rounded-2xl"/>
                         </div>
                         <div className="p-4 text-white ">
                             <h1 className="text-helperColor font-bold font-primaryFont">{restaurantDetails.name}</h1>
@@ -49,10 +50,11 @@ const RestaurantMenu=()=>{
                                 <p>|</p>
                                 <p>{restaurantDetails.distance}</p>
                             </div>
+                            
                         </div>
                     </div>
                     <div>
-                        <h1 className="text-primaryColor font-bold font-primaryFont pl-72 mt-5 mb-5 underline text-xl">Recommended</h1>
+                        <h1 className="text-primaryColor pl-72 font-bold font-primaryFont mt-5 mb-5 underline text-xl">Recommended Items</h1>
                     </div>
                 </div>
                 )
@@ -64,7 +66,7 @@ const RestaurantMenu=()=>{
                         return <RestaurantMenuItem item={menu?.card?.card?.itemCards}/>
                     }
                 })
-            }
+            } */}
         </div>
     );
 };

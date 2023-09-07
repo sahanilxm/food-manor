@@ -23,7 +23,7 @@ const CardShimmer=()=>{
 
 
 
-const Shimmer=()=>{
+export const Shimmer=()=>{
     return(
         <div className="flex flex-wrap justify-center">
             {
@@ -34,4 +34,29 @@ const Shimmer=()=>{
         </div>
     );
 };
-export default Shimmer;
+
+
+export const MenuShimmer=()=>{
+    return(
+        <div>
+            <div className="border border-primaryColor shadow bg-gray-200 pl-72">
+            <div className="animate-pulse flex space-x-4">
+                <div className="py-4 flex">
+                <div className="bg-gray-400 rounded h-36 border w-48"></div>
+                <div className="pl-8 mt-4">
+                    <div className="h-5 w-44 bg-gray-400 rounded mb-4"></div>
+                    <div className="h-5 bg-gray-400 rounded mb-4"></div>
+                    <div className="grid grid-cols-2 gap-4">
+                    <div className="h-4 bg-gray-400 rounded col-span-1"></div>
+                    <div className="h-4 bg-gray-400 rounded col-span-1"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            {
+                Array()
+            }
+        </div>
+    )
+};
