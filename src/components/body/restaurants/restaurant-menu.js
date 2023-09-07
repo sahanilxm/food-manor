@@ -34,9 +34,8 @@ const RestaurantMenu=()=>{
 
     return(
         <div className="w-full pt-20 pb-32 min-h-screen ">
-            <MenuShimmer/>
-            {/* {
-                (restaurantDetails === null ? <h1>Loading</h1>:
+            {
+                (restaurantDetails === null ? <MenuShimmer/>:
                 <div>
                     <div className="border-2 border-primaryColor flex bg-primaryColor pl-72">
                         <div>
@@ -66,7 +65,7 @@ const RestaurantMenu=()=>{
                         return <RestaurantMenuItem item={menu?.card?.card?.itemCards}/>
                     }
                 })
-            } */}
+            }
         </div>
     );
 };

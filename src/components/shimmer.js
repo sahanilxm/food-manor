@@ -27,13 +27,31 @@ export const Shimmer=()=>{
     return(
         <div className="flex flex-wrap justify-center">
             {
-                Array(10).fill("").map((element,index)=>{
+                Array(20).fill("").map((element,index)=>{
                     return <CardShimmer key={index}/>
                 })
             }
         </div>
     );
 };
+
+const CardMenuShimmer=()=>{
+    return(
+        <div className="pb-4 border-2 border-primaryColor bg-gray-50 justify-between mb-4 ml-72 mr-40 mt-10">
+            <div className="animate-pulse flex justify-between ">
+                <div className="pt-10 pl-4">
+                    <div className="h-6 border-2 bg-gray-400 w-48"></div>
+                    <div className="h-4 border-2 mt-4 bg-gray-400 w-96"></div>
+                    <div className="h-4 border-2 mt-2 bg-gray-400 w-36"></div>
+                </div>
+                <div className="pr-4 pt-2">
+                    <div className="w-48 h-24 border-2 bg-gray-400"/>
+                    <div className="border-2 w-48 h-8 mt-2 bg-gray-400 rounded-sm" ></div>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 
 export const MenuShimmer=()=>{
@@ -55,7 +73,9 @@ export const MenuShimmer=()=>{
             </div>
             </div>
             {
-                Array()
+                Array(20).fill("").map((element,index)=>{
+                    return <CardMenuShimmer key={index}/>
+                })
             }
         </div>
     )
