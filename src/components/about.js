@@ -2,7 +2,7 @@
 const About=()=>{
     return(
         <div className="min-h-screen">
-            <div className="w-full flex space-x-8 text-center justify-center pt-48">
+            <div className="w-full flex space-x-8 text-center justify-center pt-36 p-16 text-lg pb-16">
             <div className="w-1/4 border-primaryColor space-y-4 border-2 shadow-2xl shadow-primaryColor rounded-md">
                 <h1 className='text-primaryColor font-bold underline'>Admin's Profile</h1>
                 <img src={require('../assets/images/profile-pic.png')} title='Laxmi-Kumar-Sahani-Profile-Pic' className='w-52 m-auto' alt='Laxmi-Kumar-Sahani-Profile-Pic'/>
